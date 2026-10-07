@@ -3,13 +3,16 @@
 .env
 .env.backup
 .env.production
+.env.testing
+/storage/framework/cache/phpstan
 .phpactor.json
 .phpunit.result.cache
 /.fleet
 /.idea
 /.nova
 /.phpunit.cache
-/.vscode
+/.vscode/*
+!/.vscode/extensions.json
 /.zed
 /auth.json
 /node_modules
