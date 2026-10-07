@@ -1,0 +1,58 @@
+@extends('layouts.base_layout')
+
+@section('title', 'Login Akun - SellOn') 
+
+@section('content')  
+
+<main class="fade-in-effect min-h-[73vh] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 flex justify-center items-center">
+  <div id="login-view" class="view-section w-full max-w-md md:max-w-3xl flex flex-col md:flex-row justify-center items-stretch">
+    <div class="w-full md:w-2/5 p-8 md:p-10 gap-y-5 flex flex-col justify-center items-center rounded-t-2xl md:rounded-tr-none md:rounded-l-2xl bg-brand-main text-center">
+      <h2 class="text-3xl font-display font-bold text-white">Welcome Back</h2>
+      <p class="text-brand-muted mb-2 text-sm">Please login using your NIM and password.</p>
+    </div>
+    <div class="w-full md:w-3/5 p-8 md:p-10 rounded-b-2xl md:rounded-bl-none md:rounded-r-2xl border-stone-300 border-2 border-t-0 md:border-t-2 md:border-l-0 bg-stone-100">
+      <form id="form-login" action="{{ route('login_post') }}" method="POST" class="space-y-5">
+        @csrf
+        <div id="email-form">
+          <label class="block text-sm font-medium text-slate-700 mb-1">Email Address</label>
+          <input 
+            id="email" 
+            name="email" 
+            type="email" 
+            class="input-field" 
+            placeholder="email@webmail.umm.ac.id"
+            required
+          >
+          <span id="err-login-email" class="text-xs text-red-500 hidden mt-1"></span>
+        </div>  
+        <div id="password-form">
+          <label class="block text-sm font-medium text-slate-700 mb-1">Password</label>
+          <input 
+            id="password" 
+            name="password" 
+            type="password" 
+            class="input-field" 
+            placeholder="••••••••"
+            required
+          >
+          <span id="err-login-password" class="text-xs text-red-500 hidden mt-1"></span>
+        </div>
+        <div>
+          <a href="{{ route('password.request') }}" class="text-sm text-primary-600 hover:text-brand-accent hover:underline">
+            Lupa kata sandi?
+          </a>
+        </div>
+        <button type="submit" class="btn btn-primary w-full">Login</button>
+      </form>
+
+      <p class="text-center text-sm text-brand-muted mt-6">
+        Don't have an account? <a href="{{ route('register') }}"
+          class="text-brand-accent font-medium inline-block hover:underline">Register here</a>
+      </p>
+    </div>
+  </div>
+</main>
+
+@vite('resources/js/auth/login_js.js')
+
+@endsection
