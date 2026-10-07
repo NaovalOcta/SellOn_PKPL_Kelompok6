@@ -1,0 +1,10 @@
+includes:
+    - vendor/larastan/larastan/extension.neon
+
+parameters:
+    paths:
+        - app/
+
+    # Level analisis (0 = paling longgar, 9 = paling ketat). 
+    # Level 5 sangat ideal untuk mendeteksi error properti & method yang tidak terdefinisi.
+    level: 5
